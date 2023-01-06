@@ -30,17 +30,16 @@ function Attandance(){
       let time=new Date();                               //create Time
        return (time.getHours()+":"+time.getMinutes()+":"+time.getSeconds());
      }
-    
-
+   
+   
     const handleSubmit = (event) => {                          //submit Entry
-        event.preventDefault();
-        
-        setData(()=>{
-                    if(data.has(name.Rollno)){}
-                    else{  data.set(name.Rollno,{name:name.name,Present:true,Checkin_Time :Time(),Checkout_Time :""}) 
-                 }
-                 setName({name: "",Rollno: ""}) 
-                return new Map(data);});
+     event.preventDefault(); 
+     setData(()=>{
+                     if(data.has(name.Rollno)){}
+                     else{  data.set(name.Rollno,{name:name.name,Present:true,Checkin_Time :Time(),Checkout_Time :""})
+        }
+        setName({name: "",Rollno: ""}) 
+         return new Map(data);}); 
       }
      
 
@@ -131,7 +130,7 @@ function Attandance(){
  return (<>
   <h1>Attandance - {count}</h1>                                          
     <form onSubmit={handleSubmit}>                                                      { /*  students entry form */}
-    <h3>Entery: </h3>
+    <h3>Entry: </h3>
 
     <label>  Enter your Rollno:
     <input 
