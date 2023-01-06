@@ -28,7 +28,7 @@ function Attandance(){
      
    function Time(){    
       let time=new Date();                               //create Time
-       return (time.getHours()+":"+time.getMinutes()+":"+time.getMilliseconds());
+       return (time.getHours()+":"+time.getMinutes()+":"+time.getSeconds());
      }
     
 
@@ -72,14 +72,16 @@ function Attandance(){
        event.preventDefault();
        setData(()=>{ if(data.has(oname.Rollno)){
         let curr_d=data.get(oname.Rollno);
+        if(curr_d.name===oname.name){
         setOutdata(()=>{ 
           if(!outdata.has(oname.Rollno)){
+          
           outdata.set(oname.Rollno,curr_obj(curr_d))
           }
           return new Map(outdata);
         })
         data.delete(oname.Rollno)}
-        setOname({name: "",Rollno: ""})
+        setOname({name: "",Rollno: ""})}
          return new Map(data); })
       }
    
